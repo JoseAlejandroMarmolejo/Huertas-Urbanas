@@ -67,7 +67,9 @@ if process_button:
         with st.spinner("Cargando y limpiando el archivo CSV..."):
             st.session_state.data_cleaned = cargar_y_limpiar_csv(uploaded_file)
         
-        if st.session_state.data_cleaned is not in None:
+        # --- CORRECCIÓN ---
+        # Se ha corregido el error de sintaxis "is not in None" a "is not None".
+        if st.session_state.data_cleaned is not None:
             st.subheader("📊 Datos Limpios")
             st.dataframe(st.session_state.data_cleaned.head())
             
@@ -101,5 +103,3 @@ if process_button:
 
 if st.session_state.processing_done:
     st.balloons()
-
-
